@@ -1,0 +1,72 @@
+syntax="proto3";
+option java_package="com.example.immatriculationservice.stub";
+service VehiculeService{
+  rpc getAllVehicules(GetAllVehiculesRequest) returns (GetAllVehiculesResponse);
+  rpc getVehiculeById(GetVehiculeByIdRequest) returns (GetVehiculeByIdResponse);
+  rpc getVehiculeByMatricule(GetVehiculeByMatriculeRequest) returns (GetVehiculeByMatriculeResponse);
+  rpc saveVehicule(SavedVehiculeRequestDTO) returns (SavedVehiculeResponseDTO);
+  rpc updateVehicule(UpdatedVehiculeRequestDTO) returns (UpdatedVehiculeResponseDTO);
+}
+
+message GetAllVehiculesRequest{}
+
+message GetAllVehiculesResponse{
+  repeated VehiculeResponseDTO vehiculeResponseDTO = 1;
+}
+
+message VehiculeResponseDTO{
+  int64 id_Personne = 1;
+  string nom_Personne = 2;
+  string naissance_Personne = 3;
+  string mail_Personne = 4;
+  string adresse_Personne = 5;
+  int64 id_Vehicule = 6;
+  string marque_Vehicule = 7;
+  string modele_Vehicule = 8;
+  string matricule_Vehicule = 9;
+  int32 cv_Vehicule = 10;
+}
+
+message GetVehiculeByMatriculeRequest{
+  string matricule=1;
+}
+
+message GetVehiculeByMatriculeResponse{
+  VehiculeResponseDTO vehiculeResponseDTO=1;
+}
+
+message GetVehiculeByIdRequest{
+  int64 vehiculeId=1;
+}
+
+message GetVehiculeByIdResponse{
+  VehiculeResponseDTO vehiculeResponseDTO=1;
+}
+message VehiculeRequestDTO{
+  int64 id_Personne = 1;
+  string nom_Personne = 2;
+  string naissance_Personne = 3;
+  string mail_Personne = 4;
+  string adresse_Personne = 5;
+  int64 id_Vehicule = 6;
+  string marque_Vehicule = 7;
+  string modele_Vehicule = 8;
+  string matricule_Vehicule = 9;
+  int32 cv_Vehicule = 10;
+}
+message SavedVehiculeRequestDTO{
+  VehiculeRequestDTO vehiculeRequestDTO=1;
+}
+
+message SavedVehiculeResponseDTO{
+  VehiculeResponseDTO vehiculeResponseDTO=1;
+}
+
+message UpdatedVehiculeRequestDTO{
+  VehiculeRequestDTO vehiculeRequestDTO=1;
+}
+
+message UpdatedVehiculeResponseDTO{
+  VehiculeResponseDTO vehiculeResponseDTO=1;
+}
+

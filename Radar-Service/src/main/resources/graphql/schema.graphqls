@@ -1,0 +1,10 @@
+type Query{
+    findById(id:Int):RadarResponseDTO
+}
+
+type RadarResponseDTO{
+    id_Radar : Int,
+    vitesse_Radar : Int,
+    longitude_Coordonnee : Int,
+    laltitude_Coordonnee : Int
+}

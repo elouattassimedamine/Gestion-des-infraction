@@ -1,0 +1,26 @@
+type Query{
+    findAll:[InfractionResponseDTO]
+    findByMatricule(matricule:String):[InfractionResponseDTO]
+    findById(id:Int):InfractionResponseDTO
+}
+
+type Mutation{
+    save(infractionRequestDTO : InfractionRequestDTO) : InfractionResponseDTO,
+}
+
+type InfractionResponseDTO{
+    id_Infraction : Int
+    date_Infraction : String
+    montant_Infraction : Int
+    matricule_Vehicule: String
+    vitesse_Vehicule : Int
+    id_Radar : Int
+    vitesse_Radar : Int
+}
+
+input InfractionRequestDTO{
+    matricule_Vehicule: String
+    vitesse_Vehicule : Int
+    id_Radar : Int
+    vitesse_Radar : Int
+}

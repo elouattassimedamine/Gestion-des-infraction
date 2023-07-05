@@ -1,0 +1,36 @@
+type Query{
+    findAll:[VehiculeResponseDTO],
+    findById(id:Int):VehiculeResponseDTO
+    findByMatricule(matricule:String):VehiculeResponseDTO
+}
+
+type Mutation{
+    save(vehiculeRequestDTO : VehiculeRequestDTO) : VehiculeResponseDTO,
+    update(vehiculeRequestDTO : VehiculeRequestDTO) : VehiculeResponseDTO
+}
+
+type VehiculeResponseDTO{
+    id_Personne : Int
+    nom_Personne : String
+    naissance_Personne : String
+    mail_Personne : String
+    adresse_Personne : String
+    id_Vehicule : Int
+    marque_Vehicule : String
+    modele_Vehicule : String
+    matricule_Vehicule : String
+    cv_Vehicule : Int
+}
+
+input VehiculeRequestDTO{
+    id_Personne : Int
+    nom_Personne : String
+    naissance_Personne : String
+    mail_Personne : String
+    adresse_Personne : String
+    id_Vehicule : Int
+    marque_Vehicule : String
+    modele_Vehicule : String
+    matricule_Vehicule : String
+    cv_Vehicule : Int
+}

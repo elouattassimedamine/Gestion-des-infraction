@@ -1,0 +1,55 @@
+syntax="proto3";
+option java_package="com.example.infractionservice.stub";
+service InfractionService{
+  rpc getAllInfractions(GetAllInfractionsRequest) returns (GetAllInfractionsResponse);
+  rpc getAllInfractionsByMatricule(GetAllInfractionByMatriculeRequest) returns (GetAllInfractionsByMatriculeResponse);
+  rpc getInfractionById(GetInfractionByIdRequest) returns (GetInfractionByIdResponse);
+  rpc saveInfraction(SavedInfractionRequestDTO) returns (SavedInfractionResponseDTO);
+}
+
+message GetAllInfractionsRequest{}
+
+message GetAllInfractionsResponse{
+  repeated InfractionResponseDTO infractionResponseDTO = 1;
+}
+message GetAllInfractionsByMatriculeResponse{
+  repeated InfractionResponseDTO infractionResponseDTO = 1;
+}
+
+message InfractionResponseDTO{
+   int64 id_Infraction = 1;
+   string date_Infraction = 2;
+   int64 montant_Infraction = 3;
+   string matricule_Vehicule = 4;
+   int64 vitesse_Vehicule = 5;
+   int64 id_Radar = 6;
+   int64 vitesse_Radar = 7;
+}
+
+message GetInfractionByIdRequest{
+  int64 infractionId=1;
+}
+
+message GetAllInfractionByMatriculeRequest{
+  string vehiculeMatricule=1;
+}
+
+message GetInfractionByIdResponse{
+  InfractionResponseDTO infractionResponseDTO=1;
+}
+message InfractionRequestDTO{
+  string matricule_Vehicule = 1;
+  int64 vitesse_Vehicule = 2;
+  int64 id_Radar = 3;
+  int64 vitesse_Radar = 4;
+}
+message SavedInfractionRequestDTO{
+  InfractionRequestDTO infractionRequestDTO=1;
+}
+
+message SavedInfractionResponseDTO{
+  InfractionResponseDTO infractionResponseDTO=1;
+}
+
+
+
